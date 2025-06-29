@@ -1,0 +1,41 @@
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 15
+        spacing: 10
+
+        Label:
+            text: "🎯 百家乐数字孪生助手"
+            font_size: 32
+            size_hint_y: 0.1
+
+        Label:
+            id: prob_label
+            text: "概率计算中..."
+            font_size: 18
+
+        Label:
+            id: strategy_label
+            text: "策略与下注建议将在这里显示"
+            font_size: 18
+
+        Button:
+            text: "模拟结果：添加'庄胜'"
+            size_hint_y: 0.1
+            on_release:
+                app.root.tracker.add_result("banker", 10, 10)
+                root.update_labels()
+
+        Button:
+            text: "模拟结果：添加'闲胜'"
+            size_hint_y: 0.1
+            on_release:
+                app.root.tracker.add_result("player", 10, 10)
+                root.update_labels()
+
+        Button:
+            text: "模拟结果：添加'输局'"
+            size_hint_y: 0.1
+            on_release:
+                app.root.tracker.add_result("banker", 10, 0)
+                root.update_labels()
